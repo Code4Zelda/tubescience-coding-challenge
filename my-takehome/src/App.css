@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu-container {
+  color: #fff;
+  background-color: #5995DA;  /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  border: 1px solid #fff;  /* For debugging */
+  width: 900px;
+  display:flex;
+  justify-content: space-between;
+
+}
+
+/* components - Contents */
+
+.main-content-container {
+  padding:20px;
+  display: flex;
+  justify-content: space-around
+  
+}
+.contentA {
+  /* background: rgb(243, 192, 188); */
+  width: 500px;
+  height: 500px;
+}
+.contentB {
+  /* background: #EEEEEE; */
+  width: 500px;
+  height: 500px;
+}
+
+/* body {
+    margin:0;
+    padding:0;
+} */
+/* 
+.header {
+  z-index:100;
+  display:flex;
+  
+  justify-content: space-between; 
+  margin:0;
+  padding: 0;
+  width: 100%;
+  height:150px;
+  background-color: rgb(243, 192, 188);
+  color:blue;
+} */
+
+/* .head {
+  display: flex;
+
+  align-items: center;
+  position: relative;
+  left: 70px;
+
+} */
