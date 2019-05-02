@@ -19,8 +19,6 @@ class App extends React.Component {
       contentA:'',
       contentB:'',
       hideText: true,
-      backgroundColor:'#EEEEEE'
-
     }
 
   }
@@ -38,63 +36,54 @@ class App extends React.Component {
   handleSignChange = (e) => {
     console.log(e)
     const { isClicked, hidden } = this.state;
-    this.setState({
-      isClicked: !isClicked,
-      hidden:!hidden
-    })
+      this.setState({
+        isClicked: !isClicked,
+        hidden:!hidden
+      })
     
   }
 
   handleHideText = (e) => {
-    const { hideText,hidden } = this.state
+    const { hideText } = this.state
     this.setState({
       hideText:!hideText,
     })
-    if(!hideText){
-      this.setState({backgroundColor:"#EEEEEE"})
-    }else{
-      this.setState({backgroundColor:"#FFFFFF"})
-    }
-    // if(hidden){
-    //   this.setState({backgroundColor:"rgb(243, 192, 188)"})
-    // }else{
-    //   this.
-    // }
+    
     console.log(`This is my hideText state ${this.state.hideText}`)
   }
-
   
   render(){
-    const { head, isClicked, hidden, contentA, contentB, hideText, backgroundColor } = this.state;
+    const { head, isClicked, hidden, contentA, contentB, hideText } = this.state;
     let headerInfo = head.map((el,i)=><ul>{el}</ul>)
     
   return (
   
-  <div>
+  <div className="foo">
     <div className="menu-container">
      <div className="menu">
         {headerInfo[0]}
         {headerInfo[1]}  
         {headerInfo[2]}
-        <div className="btn"  onClick={this.handleSignChange}>
+        <div className="bounce"  onClick={this.handleSignChange}>
          {isClicked ?  <IoIosAddCircleOutline/> :  <IoIosRemoveCircleOutline/>} 
         </div>
      </div>
    </div>
-   <div className="main-content-container">
-   <DisplayContent 
-   hidden={hidden}
-   contentA={contentA}
-   backgroundColor={backgroundColor}
-  
+   <div className="main-content-container" >
+   { hidden ? null: 
+   <div className="content">
+    <DisplayContent 
+    hidden={hidden}
+    contentA={contentA}
+    hideText={hideText}
    />
-   <DisplayContentB 
-   contentB={contentB} 
-   hideText={hideText} 
-   handleHideText={this.handleHideText} 
-   backgroundColor={backgroundColor}
+    <DisplayContentB 
+    contentB={contentB} 
+    hideText={hideText} 
+    handleHideText={this.handleHideText} 
    />
-   </div>
+      </div> }
+    </div>
   </div>
   )}
 }
