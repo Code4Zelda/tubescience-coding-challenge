@@ -3,15 +3,12 @@ import React from 'react';
 
 function DisplayContentB(props) {
 
-const { hideText, contentB, backgroundColor } = props
+const { hideText, contentB, handleHideText } = props
   return(
     <div className="main-container">
-      <div className="contentB" onClick={props.handleHideText} style={{backgroundColor:backgroundColor}}>
+      <div className={!hideText? "isActive":"isInactive"} onClick={handleHideText} >
         {hideText? null: contentB}
-       
-        
       </div>
-  
     </div>
   )
 }

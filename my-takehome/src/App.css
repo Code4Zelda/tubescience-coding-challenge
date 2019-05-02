@@ -24,44 +24,49 @@
 
 .main-content-container {
   padding:20px;
-  display: flex;
-  justify-content: space-around
+  /* display: flex; */
+  /* justify-content: space-between; */
   
 }
-.contentA {
-  /* background: rgb(243, 192, 188); */
-  width: 500px;
-  height: 500px;
-}
-.contentB {
-  /* background: #EEEEEE; */
-  width: 500px;
-  height: 500px;
-}
-
-/* body {
-    margin:0;
-    padding:0;
-} */
-/* 
-.header {
-  z-index:100;
+.content {
   display:flex;
-  
-  justify-content: space-between; 
-  margin:0;
-  padding: 0;
-  width: 100%;
-  height:150px;
-  background-color: rgb(243, 192, 188);
-  color:blue;
-} */
+  justify-content: space-around;
+}
 
-/* .head {
-  display: flex;
+/* check if either content A or B is active */
+.isActive {
+  background-color: #FFFFFF;
+  width: 500px;
+  height: 500px;
+}
 
-  align-items: center;
-  position: relative;
-  left: 70px;
+.isInactive {
+ background-color: #EEEEEE;
+ width: 500px;
+ height: 500px;
+ /* border-image: url(border.png) 20% round; */
+-ms-transform: rotate(360deg); 
+  -webkit-transform: rotate(360deg); 
+  transform: rotate(360deg);
+  transition-duration: 4s;
+  transition: 0.4s
+}
 
-} */
+/* CSS for the btn */
+
+.bounce:hover {
+  color: red;
+}
+
+
+@keyframes bounce {
+  from, to  {
+    bottom: 45px;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    bottom: 140px;
+    animation-timing-function: ease-in;
+	
+  }
+}
