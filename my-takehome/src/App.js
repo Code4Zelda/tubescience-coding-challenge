@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { Fragment }from 'react';
 import './App.css';
 import axios from 'axios'
-import { 
-  IoIosRemoveCircleOutline, 
-  IoIosAddCircleOutline
-} from "react-icons/io";
-import DisplayContent from './components/DisplayContent';
+import DisplayContentA from './components/DisplayContentA';
 import DisplayContentB from './components/DisplayContentB';
+import Header from './components/Header';
 
 
 class App extends React.Component {
@@ -25,7 +22,6 @@ class App extends React.Component {
   // *fetch data
   async componentDidMount() {
     let data = await axios.get('./data.json');
-     console.log(data.data.headerData)
       this.setState({
         headerData:data.data.headerData,
         contentA:data.data.contentA,
@@ -33,8 +29,7 @@ class App extends React.Component {
       })
   }
   
-  handleSignChange = (e) => {
-    console.log(e)
+  handleSignChange = () => {
     const { isClicked, hidden } = this.state;
       this.setState({
         isClicked: !isClicked,
@@ -49,7 +44,7 @@ class App extends React.Component {
         })
       }
   }
-    
+
   handleHideText = (e) => {
     const { hideText } = this.state;
       this.setState({
@@ -61,36 +56,29 @@ class App extends React.Component {
   render() {
     const { headerData, isClicked, hidden, contentA, contentB, hideText } = this.state;
 
-    let headerInfo = headerData.map((el,i)=><ul>{el}</ul>)
-    
   return (
-  <div>
-    <div className="menu-container">
-     <div className="menu">
-        {headerInfo[0]}
-        {headerInfo[1]}  
-        {headerInfo[2]}
-        <div className="btn"  onClick={this.handleSignChange}>
-         {isClicked ?  <IoIosAddCircleOutline/> :  <IoIosRemoveCircleOutline/>} 
-        </div>
-     </div>
-   </div>
+  <>
+    <Header 
+    headerData={headerData}
+    isClicked={isClicked}
+    handleSignChange={this.handleSignChange}
+    />
   <div style={{padding:'20px'}}>
-   { hidden ? null: 
-   <div className="content">
-    <DisplayContent 
-     hidden={hidden}
-     contentA={contentA}
-     hideText={hideText}
-   />
-    <DisplayContentB 
-     contentB={contentB} 
-     hideText={hideText} 
-     handleHideText={this.handleHideText} 
-   />
+    { hidden ? null: 
+    <div className="content">
+      <DisplayContentA
+      hidden={hidden}
+      contentA={contentA}
+      hideText={hideText}
+      />
+      <DisplayContentB 
+      contentB={contentB} 
+      hideText={hideText} 
+      handleHideText={this.handleHideText} 
+      />
     </div> }
    </div>
-  </div>
+  </>
   )}
 }
 

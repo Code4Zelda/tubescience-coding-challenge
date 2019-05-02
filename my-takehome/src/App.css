@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.menu-container {
+.header-container {
   color: #fff;
   background-color: #5995DA;  /* Blue */
   padding: 20px 0;
@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-.menu {
+.header {
   /* border: 1px solid #fff;  For debugging */
   width: 900px;
   display:flex;
