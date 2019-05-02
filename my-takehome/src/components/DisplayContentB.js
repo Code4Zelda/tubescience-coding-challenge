@@ -4,8 +4,7 @@ import React from 'react';
  * 
  * @param {*} props 
  */
-function DisplayContentB(props) {
-
+const DisplayContentB = (props) => {
 const { hideText, contentB, handleHideText } = props
   return(
     <div className={!hideText? "isActive":"isInactive"} onClick={handleHideText} >

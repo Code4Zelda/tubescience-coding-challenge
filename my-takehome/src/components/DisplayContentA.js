@@ -5,8 +5,7 @@ import React from 'react';
  * @param {*} props 
  */
 
-function DisplayContent(props) {
-
+const DisplayContentA=(props) => {
 const { contentA, hideText } = props
   return(                                 
     <div className={ !hideText? "isInactive":"isAvtive" }>
@@ -14,4 +13,4 @@ const { contentA, hideText } = props
     </div>                     
   )
 }                                                                                                                           
-export default DisplayContent; 
+export default DisplayContentA; 
